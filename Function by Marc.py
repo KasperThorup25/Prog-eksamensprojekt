@@ -7,14 +7,12 @@ def EnOrDe():
     while X is True:
         Ask = input("Type 0 to Encrypt or type 1 to Decrypt: ")
         if "0" in Ask:
-            print("You Choose Encrypting.")
+            print("\nYou Choose Encrypting.")
             break
         if "1" in Ask:
-            print("You Choose Decrypting.")
+            print("\nYou Choose Decrypting.")
             break
         else:
             print("\nERROR! Answer may only contain 0 or 1.")
             print("Please try again.\n")
             continue
-
-EnOrDe()
