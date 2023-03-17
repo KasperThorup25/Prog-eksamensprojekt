@@ -1,5 +1,13 @@
 def getKey():
-    print_hi('Hello')
+    print('Hello')
+    while True:
 
-    key = input("Which key would you like to use?  ")
-    return key
+        key = input("Which key would you like to use?  ")
+
+        if checkIfNotText(key) == True:
+            return key
+        else:
+            print("You can only use letters, try again")
+
+
+getKey()
