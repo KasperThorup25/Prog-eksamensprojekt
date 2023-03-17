@@ -18,10 +18,13 @@ def EncryptOrDecrypt():
 
 choice = EncryptOrDecrypt()
 def GetTextInput(choice):
-    if choice == 0:
-        Encrypt = input("\nPlease write the text you want to Encrypt: ")
-        print("\n",Encrypt)
-    elif choice == 1:
-        input("\nPlease write the text you want to Decrypt: ")
-
+    while True:
+        if choice == 0:
+            encryptText = input("\nPlease write the text you want to Encrypt: ")
+            if checkIfNotText(encryptText) == True:
+                return encryptText
+        elif choice == 1:
+            decryptText = input("\nPlease write the text you want to Decrypt: ")
+            if checkIfNotText(decryptText) == True:
+                return decryptText
 GetTextInput(choice)
