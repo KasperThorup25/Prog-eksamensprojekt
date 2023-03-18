@@ -6,14 +6,15 @@ choise = EncryptOrDecrypt() #returner 0 eller 1
 if choise == 0: #Encrypt
     text = getTextInput(choise)
     key = getKey()
+    textWithoutSpace = removeSpace(text)
     decryptedText = decrypt(text, key)
-    #print(decryptedText())
+    #print(decryptedText)
 
 elif choise == 1: #Decrypt
     text = getTextInput(choise)
     key = getKey()
     encryptedText = encrypt(text, key)
-    # print(encryptedText())
+    # print(encryptedText)
 
 
 
@@ -49,5 +50,11 @@ def encrypt():
     pass
 
 
-def getKey():
+def getKey(): #skal returnere
+    pass
+    checkIfNotText()
+
+
+
+def removeSpace():
     pass
