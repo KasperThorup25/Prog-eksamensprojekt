@@ -10,10 +10,10 @@ def EncryptOrDecrypt():
         AskforEncryptOrDecrypt = input("Type 0 to Encrypt or type 1 to Decrypt: ")
         if "0" in AskforEncryptOrDecrypt:
             print("\nYou Choose Encrypting.")
-            return 0
+            return "encrypt"
         elif "1" in AskforEncryptOrDecrypt:
             print("\nYou Choose Decrypting.")
-            return 1
+            return "decrypt"
         else:
             print("\nERROR! Answer may only contain 0 or 1.")
             print("Please try again.\n")
@@ -25,11 +25,11 @@ choice = EncryptOrDecrypt()
 
 def GetTextInput(choice):
     while True:
-        if choice == 0:
+        if choice == "encrypt":
             encryptText = input("\nPlease write the text you want to Encrypt: ")
             if checkIfOnlyText(encryptText) == True:
                 return encryptText
-        elif choice == 1:
+        elif choice == "decrypt":
             decryptText = input("\nPlease write the text you want to Decrypt: ")
             if checkIfOnlyText(decryptText) == True:
                 return decryptText
