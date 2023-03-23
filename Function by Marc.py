@@ -2,6 +2,9 @@ def noSpace(message):
     notab = message.replace("\t", "")
     return notab.replace(" ", "")
 # Remeber to link noSpace to input
+
+
+
 def EncryptOrDecrypt():
     while True:
         AskforEncryptOrDecrypt = input("Type 0 to Encrypt or type 1 to Decrypt: ")
@@ -17,6 +20,9 @@ def EncryptOrDecrypt():
             continue
 
 choice = EncryptOrDecrypt()
+
+
+
 def GetTextInput(choice):
     while True:
         if choice == 0:
@@ -27,4 +33,5 @@ def GetTextInput(choice):
             decryptText = input("\nPlease write the text you want to Decrypt: ")
             if checkIfOnlyText(decryptText) == True:
                 return decryptText
+
 GetTextInput(choice)
