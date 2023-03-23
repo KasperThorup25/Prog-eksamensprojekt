@@ -98,11 +98,11 @@ if choice == "encrypt": # Encrypt
     text = getTextInput(choice)
     key = getKey()
     textWithoutSpace = removeSpace(text)
-    decryptedText = decrypt(text, key)
-    # print(decryptedText)
+    decryptedText = scramble(textWithoutSpace, key, choice)
+    print(decryptedText)
 
 elif choice == "decrypt": # Decrypt
     text = getTextInput(choice)
     key = getKey()
-    encryptedText = encrypt(text, key)
-    # print(encryptedText)
+    encryptedText = scramble(text, key, choice)
+    print(encryptedText)
