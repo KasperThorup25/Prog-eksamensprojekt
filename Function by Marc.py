@@ -21,10 +21,10 @@ def GetTextInput(choice):
     while True:
         if choice == 0:
             encryptText = input("\nPlease write the text you want to Encrypt: ")
-            if checkIfNotText(encryptText) == True:
+            if checkIfOnlyText(encryptText) == True:
                 return encryptText
         elif choice == 1:
             decryptText = input("\nPlease write the text you want to Decrypt: ")
-            if checkIfNotText(decryptText) == True:
+            if checkIfOnlyText(decryptText) == True:
                 return decryptText
 GetTextInput(choice)

@@ -31,14 +31,14 @@ elif choise == 1: #Decrypt
 
 
 def getTextInput(choise):
-    checkIfNotText()
+    checkIfOnlyText()
 
 
 def EncryptOrDecrypt():
     pass
 
 
-def checkIfNotText(): #returner true eller false
+def checkIfOnlyText(): #returner true hvis stringen kun er bogstaver
     pass
 
 
@@ -52,7 +52,7 @@ def encrypt():
 
 def getKey(): #skal returnere
     pass
-    checkIfNotText()
+    checkIfOnlyText()
 
 
 
