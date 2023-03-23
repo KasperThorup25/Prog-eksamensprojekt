@@ -1,16 +1,16 @@
-#Dette er til skellettet af koden
+# Dette er til skellettet af koden
 
 
-choise = EncryptOrDecrypt() #returner 0 eller 1
+choise = EncryptOrDecrypt() # returner 0 eller 1
 
-if choise == 0: #Encrypt
+if choise == 0: # Encrypt
     text = getTextInput(choise)
-    key = getKey()
+    key = getKe y()
     textWithoutSpace = removeSpace(text)
     decryptedText = decrypt(text, key)
-    #print(decryptedText)
+    # print(decryptedText)
 
-elif choise == 1: #Decrypt
+elif choise == 1: # Decrypt
     text = getTextInput(choise)
     key = getKey()
     encryptedText = encrypt(text, key)
