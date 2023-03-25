@@ -1,26 +1,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 def getTextInput(choise):
     while True:
         if choice == "encrypt":
             encryptText = input("\nPlease write the text you want to Encrypt: ")
-            if checkIfOnlyText(encryptText) == True:
-                return encryptText
+            if checkIfOnlyText(removeSpace(encryptText)) == True:
+                return removeSpace(encryptText)
         elif choice == "decrypt":
             decryptText = input("\nPlease write the text you want to Decrypt: ")
-            if checkIfOnlyText(decryptText) == True:
-                return decryptText
+            if checkIfOnlyText(removeSpace(decryptText)) == True:
+                return removeSpace(decryptText)
 
 
 def EncryptOrDecrypt():
@@ -45,32 +35,34 @@ def checkIfOnlyText(textInput): #returner true hvis stringen kun er bogstaver
     return True
 
 
-def scramble(text, key, decryptOrEncrypt):
-    encryptedText = ""
-    keyLength = len(key)
-    keyIndex = 0
-    for i in range(len(text)):
-        if decryptOrEncrypt == "decrypt":
-            encryptedText += encryptChar(text[i],key[keyIndex])
-        elif decryptOrEncrypt == "encrypt":
-            encryptedText += decryptChar(text[i], key[keyIndex])
-        keyIndex += 1
-        if keyIndex >= keyLength:
-            keyIndex = 0
-    return encryptedText
-
-
 def decryptChar(textChar, keyChar):
-    encryptCharAscii = ord(keyChar) - 97 - ord(textChar)
-    if encryptCharAscii > 122:
-        encryptCharAscii += 26
-    return chr(encryptCharAscii)
+    decryptCharAscii = ord(textChar) - (ord(keyChar) - 97)
+    if decryptCharAscii < 97:
+        decryptCharAscii += 26
+    return chr(decryptCharAscii)
 
 def encryptChar(textChar, keyChar):
     encryptCharAscii = ord(keyChar) - 97 + ord(textChar)
     if encryptCharAscii > 122:
         encryptCharAscii -= 26
     return chr(encryptCharAscii)
+
+
+def scramble(text, key, decryptOrEncrypt):
+    encryptedText = ""
+    keyLength = len(key)
+    keyIndex = 0
+    for i in range(len(text)):
+        if decryptOrEncrypt == "decrypt":
+            encryptedText += decryptChar(text[i].lower(), key[keyIndex])
+        elif decryptOrEncrypt == "encrypt":
+            encryptedText += encryptChar(text[i].lower(), key[keyIndex])
+        keyIndex += 1
+        if keyIndex >= keyLength:
+            keyIndex = 0
+    return encryptedText
+
+
 
 
 def getKey():
@@ -97,12 +89,11 @@ choice = EncryptOrDecrypt() # returner "encrypt" eller "decrypt"
 if choice == "encrypt": # Encrypt
     text = getTextInput(choice)
     key = getKey()
-    textWithoutSpace = removeSpace(text)
-    decryptedText = scramble(textWithoutSpace, key, choice)
-    print(decryptedText)
+    encryptedText = scramble(text, key, choice)
+    print(encryptedText)
 
 elif choice == "decrypt": # Decrypt
     text = getTextInput(choice)
     key = getKey()
-    encryptedText = scramble(text, key, choice)
-    print(encryptedText)
+    decryptedText = scramble(text, key, choice)
+    print(decryptedText)

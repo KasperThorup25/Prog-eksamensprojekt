@@ -5,5 +5,5 @@ def checkIfOnlyText(textInput):
     return True
 
 
-#text = input("text: ")
-#print(checkIfOnlyText(text))
+text = input("text: ")
+print(checkIfOnlyText(text))
